@@ -860,8 +860,10 @@
                         name="name"
                         id="name"
                         placeholder="Your Name"
+                        onkeyup="validateName()"
                       />
-                      <label for="name">Your Name</label>
+                      <label for="name">Full Name</label>
+                      <span id="name-error"style="color: red;"></span>
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -869,11 +871,13 @@
                       <input
                         type="email"
                         class="form-control"
-                        name="emmail"
+                        name="email"
                         id="email"
                         placeholder="Your Email"
-                      />
+                        onkeyup="validateEmail()"
+                      /> 
                       <label for="email">Your Email</label>
+                      <span id="email-error"style="color: red;"></span>
                     </div>
                   </div>
                   <div class="col-12">
@@ -884,29 +888,36 @@
                         name="subject"
                         id="subject"
                         placeholder="Subject"
+                        onkeyup="validateSubject()"
                       />
                       <label for="subject">Subject</label>
+                      <span id="subject-error" style="color: red;"></span>
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="form-floating">
                       <textarea
+                      type="text"
                         class="form-control"
                         name="message"
                         placeholder="Leave a message here"
                         id="message"
                         style="height: 150px"
                       ></textarea>
+
                       <label for="message">Message</label>
+                      <span id="message-error" style="color: red;"></span>
                     </div>
                   </div>
                   <div class="col-12">
-                    <button
-                      class="btn btn-dark rounded-pill py-3 px-5"
+                    <button onclick="return validationForm()"
+                      class="btn btn-dark rounded-pill py-3 px-5" 
                       type="submit"
                     >
                       Send Message
                     </button>
+                  </br>
+                    <span id="submit-error"style="color: red;"></span>
                   </div>
                 </div>
               </form>
@@ -1072,5 +1083,6 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="Script.js"></script>
   </body>
 </html>
