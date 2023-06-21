@@ -40,7 +40,7 @@
 
 
 /*** Heading ***/
-h1,
+h2,
 h2,
 .fw-bold {
     font-weight: 700 !important;
@@ -52,7 +52,7 @@ h4,
     font-weight: 600 !important;
 }
 
-h5,
+h2,
 h6,
 .fw-medium {
     font-weight: 500 !important;
@@ -139,7 +139,7 @@ h6,
     color: var(--primary);
 }
 
-.navbar .navbar-brand h1 {
+.navbar .navbar-brand h2 {
     color: #FFFFFF;
 }
 
@@ -175,7 +175,7 @@ h6,
         color: var(--primary);
     }
 
-    .navbar .navbar-brand h1 {
+    .navbar .navbar-brand h2 {
         color: var(--primary);
     }
 
@@ -198,7 +198,7 @@ h6,
         background: #FFFFFF;
     }
 
-    .sticky-top.navbar .navbar-brand h1 {
+    .sticky-top.navbar .navbar-brand h2 {
         color: var(--primary);
     }
 
