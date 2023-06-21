@@ -873,11 +873,13 @@
       <!-- Testimonial End -->
 
       <!-- Contact Start -->
-      <div class="container-xxl py-1" id="contact">
+      <div class="container-xxl py-6" id="contact">
         <div class="container">
+
           <div class="row g-5">
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
               <h1 class="mb-3">We are here to help!</h1>
+
               <!-- <p class="mb-4">
                 The contact form is currently inactive. Get a functional and
                 working contact form with Ajax & PHP in a few minutes. Just copy
@@ -921,16 +923,20 @@
               </div>
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-  <form action="https://formsubmit.co/06330098e13554e0d53eb1a3f4ca0d41" method="POST" >                <div class="row g-3">
+                <form action="https://formsubmit.co/06330098e13554e0d53eb1a3f4ca0d41" method="POST" >
+                <div class="row g-3">
                   <div class="col-md-6">
                     <div class="form-floating">
                       <input
                         type="text"
                         class="form-control"
+                        name="name"
                         id="name"
                         placeholder="Your Name"
+                        onkeyup="validateName()"
                       />
-                      <label for="name">Your Name</label>
+                      <label for="name">Full Name</label>
+                      <span id="name-error"style="color: red;"></span>
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -938,10 +944,13 @@
                       <input
                         type="email"
                         class="form-control"
+                        name="email"
                         id="email"
                         placeholder="Your Email"
-                      />
+                        onkeyup="validateEmail()"
+                      /> 
                       <label for="email">Your Email</label>
+                      <span id="email-error"style="color: red;"></span>
                     </div>
                   </div>
                   <div class="col-12">
@@ -949,36 +958,53 @@
                       <input
                         type="text"
                         class="form-control"
+                        name="subject"
                         id="subject"
                         placeholder="Subject"
+                        onkeyup="validateSubject()"
                       />
                       <label for="subject">Subject</label>
+                      <span id="subject-error" style="color: red;"></span>
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="form-floating">
                       <textarea
+                      type="text"
                         class="form-control"
+                        name="message"
                         placeholder="Leave a message here"
                         id="message"
                         style="height: 150px"
                       ></textarea>
+
                       <label for="message">Message</label>
+                      <span id="message-error" style="color: red;"></span>
                     </div>
                   </div>
                   <div class="col-12">
-                    <button
-                      class="btn btn-dark rounded-pill py-3 px-5"
+                    <button onclick="return validationForm()"
+                      class="btn btn-dark rounded-pill py-3 px-5" 
                       type="submit"
                     >
                       Send Message
                     </button>
+                  </br>
+                    <span id="submit-error"style="color: red;"></span>
                   </div>
                 </div>
               </form>
+
+
+             
+
+
+
             </div>
+           
           </div>
         </div>
+      
       </div>
       <!-- Contact End -->
 
@@ -1115,6 +1141,76 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- <Validation Script> -->
+      <script>
+        function validateName() {
+          var nameInput = document.getElementById("name");
+          var nameError = document.getElementById("name-error");
+          if (nameInput.value === "") {
+            nameError.textContent = "Name is required";
+          } else {
+            nameError.textContent = "";
+          }
+        }
+      
+        function validateEmail() {
+          var emailInput = document.getElementById("email");
+          var emailError = document.getElementById("email-error");
+          var emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      
+          if (emailInput.value === "") {
+            emailError.textContent = "Email is required";
+          } else if (!emailPattern.test(emailInput.value)) {
+            emailError.textContent = "Invalid email format";
+          } else {
+            emailError.textContent = "";
+          }
+        }
+      
+        function validateSubject() {
+          var subjectInput = document.getElementById("subject");
+          var subjectError = document.getElementById("subject-error");
+      
+          if (subjectInput.value === "") {
+            subjectError.textContent = "Subject is required";
+          } else {
+            subjectError.textContent = "";
+          }
+        }
+      
+        function validateMessage() {
+          var messageInput = document.getElementById("message");
+          var messageError = document.getElementById("message-error");
+      
+          if (messageInput.value === "") {
+            messageError.textContent = "Message is required";
+          } else {
+            messageError.textContent = "";
+          }
+        }
+      
+        function validationForm() {
+          validateName();
+          validateEmail();
+          validateSubject();
+          validateMessage();
+      
+          var nameError = document.getElementById("name-error").textContent;
+          var emailError = document.getElementById("email-error").textContent;
+          var subjectError = document.getElementById("subject-error").textContent;
+          var messageError = document.getElementById("message-error").textContent;
+      
+          if (nameError !== "" || emailError !== "" || subjectError !== "" || messageError !== "") {
+            var submitError = document.getElementById("submit-error");
+            submitError.textContent = "Please fill in all required fields";
+            return false;
+          }
+      
+          return true;
+        }
+      </script>
+      
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>

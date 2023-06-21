@@ -930,29 +930,17 @@
                   </div>
                 </div>
               </form>
+
+
+             
+
+
+
             </div>
            
           </div>
         </div>
-        <!-- <script src="https://smtpjs.com/v3/smtp.js"></script>
-        <script>
-          function sendEmail(){
-            Email.send({
-              
-                 Host : "smtp.gmail.com",
-                 Username : "aditigurav@opticalarc.com",
-                   Password : "Aditi@151617",
-                  To : 'aditigurav@opticalarc.com',
-                  From : document.getElementById("email").value,
-                    Subject : "Enquiry",
-                     Body : "And this is the body"
-                      }).then(
-                   message => alert(message)
-                          );
-
-           
-          }
-          </script> -->
+      
       </div>
       <!-- Contact End -->
 
@@ -1090,9 +1078,87 @@
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
+
+
+
+    <script>
+      function validateName() {
+        var nameInput = document.getElementById("name");
+        var nameError = document.getElementById("name-error");
+        if (nameInput.value === "") {
+          nameError.textContent = "Name is required";
+        } else {
+          nameError.textContent = "";
+        }
+      }
+    
+      function validateEmail() {
+        var emailInput = document.getElementById("email");
+        var emailError = document.getElementById("email-error");
+        var emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    
+        if (emailInput.value === "") {
+          emailError.textContent = "Email is required";
+        } else if (!emailPattern.test(emailInput.value)) {
+          emailError.textContent = "Invalid email format";
+        } else {
+          emailError.textContent = "";
+        }
+      }
+    
+      function validateSubject() {
+        var subjectInput = document.getElementById("subject");
+        var subjectError = document.getElementById("subject-error");
+    
+        if (subjectInput.value === "") {
+          subjectError.textContent = "Subject is required";
+        } else {
+          subjectError.textContent = "";
+        }
+      }
+    
+      function validateMessage() {
+        var messageInput = document.getElementById("message");
+        var messageError = document.getElementById("message-error");
+    
+        if (messageInput.value === "") {
+          messageError.textContent = "Message is required";
+        } else {
+          messageError.textContent = "";
+        }
+      }
+    
+      function validationForm() {
+        validateName();
+        validateEmail();
+        validateSubject();
+        validateMessage();
+    
+        var nameError = document.getElementById("name-error").textContent;
+        var emailError = document.getElementById("email-error").textContent;
+        var subjectError = document.getElementById("subject-error").textContent;
+        var messageError = document.getElementById("message-error").textContent;
+    
+        if (nameError !== "" || emailError !== "" || subjectError !== "" || messageError !== "") {
+          var submitError = document.getElementById("submit-error");
+          submitError.textContent = "Please fill in all required fields";
+          return false;
+        }
+    
+        return true;
+      }
+    </script>
+    
+
+
+
+
+
+
+          
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script src="Script.js"></script>
+    <!-- <script src="Script.js"></script> -->
 
 
 
