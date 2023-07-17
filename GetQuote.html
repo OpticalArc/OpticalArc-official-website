@@ -70,7 +70,7 @@
         <nav
           class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 "
         >
-          <a href="" class="navbar-brand p-0">
+           <a href="index.html" class="navbar-brand p-0">
             <!-- <h2 class="m-0">Company Logo</h2> -->
             <!-- <img src="img/logo.png" alt="Logo"> -->
             <!-- <img src="img/Optical Arc Logo.png" alt="Logo" style="border-radius: 10%;" sizes="(max-width: 1024px) 100vw, 1024px"> -->
@@ -151,13 +151,13 @@
 
             <div class="nav-item dropdown">
              <a href="Blogs.html" class="nav-item nav-link">Blogs</a>
-              <div class="dropdown-menu fade-down m-0">
+              <!-- <div class="dropdown-menu fade-down m-0">
                 <a href="Blog1.html" class="dropdown-item">DBMS</a>
-               
+                -->
                 <!-- <a href="#" class="dropdown-item">Career</a> -->
 
                  
-              </div>
+              <!-- </div> -->
             </div>
 
 
@@ -854,6 +854,7 @@
                         name="firstname"
                         id="name"
                         placeholder="Your Name"
+                        required
                       />
                       <label for="name">First Name</label>
                     </div>
@@ -866,6 +867,7 @@
                         name="lastname"
                         id="lastname"
                         placeholder="Last Name"
+                        required
                       />
                       <label for="lastname">Last Name</label>
                     </div>
@@ -878,6 +880,7 @@
                         name="email"
                         id="email"
                         placeholder="Your Email"
+                        required
                       />
                       <label for="email">Your Email</label>
                     </div>
@@ -899,20 +902,46 @@
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked name=" Digital Marketing">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked name="Web Development">
                     <label class="form-check-label" for="flexCheckChecked">
-                        Digital Marketing
+                       Web Development
                        
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked name="Graphic Designing">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked name="Mobile Application Development">
                     <label class="form-check-label" for="flexCheckChecked">
-                        Graphic Designing
+                        Mobile Application Development
                        
                     </label>
                   </div>
-         
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked name="E-Commerce">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        E-Commerce
+                       
+                  </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name=" Software Testing">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Software Testing
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name=" Custom Software Development">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Custom Software  Development 
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name=" UI/UX Development">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      UI/UX  Development 
+                    </label>
+                  </div>
+                  
+                  
                     <!-- <div class="form-floating">
                       <textarea
                         class="form-control"
@@ -1092,6 +1121,36 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+
+
+    <!-- <Validation Script start> -->
+      <script>
+        function validateForm() {
+          var firstName = document.getElementById("name").value;
+          var lastName = document.getElementById("lastname").value;
+          var email = document.getElementById("email").value;
+          var developmentServices = document.getElementById("developmentServices").checked;
+          var webDevelopment = document.getElementById("webDevelopment").checked;
+          var mobileAppDevelopment = document.getElementById("mobileAppDevelopment").checked;
+          var eCommerce = document.getElementById("eCommerce").checked;
+          var softwareTesting = document.getElementById("softwareTesting").checked;
+      
+          if (firstName === "" || lastName === "" || email === "") {
+            alert("Please fill in all required fields.");
+            return false;
+          }
+      
+          if (!developmentServices && !webDevelopment && !mobileAppDevelopment && !eCommerce && !softwareTesting) {
+            alert("Please select at least one service.");
+            return false;
+          }
+      
+          return true;
+        }
+      </script>
+    <!-- <Validation Script End> -->
+
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
